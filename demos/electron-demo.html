@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cubbie</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  const cubbie = require('../dist/cubbie.bundle.js');
+  const _ = require('lodash');
+
+  const store = cubbie.createStore({
+    file: './store.cubbie',
+    pretty: true
+    // ,encryption: {
+    //   secret: 'mr_poopy_butthole'
+    // }
+  });
+
+  window.store = store;
+
+  store.eventLogging.enable('Demo');
+
+  store.on(store.stateEvents, () => {
+    console.log('\nstate event emitted');
+  });
+
+  store.on('STATE_SET', () => {
+    console.log('State Set.');
+  });
+
+  // store.describeState({
+  //   people: cubbie.describe({ types: ['Array', 'Null'] }),
+  //   currentPanel: cubbie.describe({ type: 'String', values: ['HOME', 'IRON'] }),
+  //   animal: {
+  //     info: cubbie.describe({ type: 'Array' })
+  //   },
+  //   currentPerson: cubbie.describe({ type: 'NUMBER' })
+  // });
+
+  // store.initialState = {
+  //   people: [
+  //     { name: 'Sam', age: 25 },
+  //     { name: 'Jasmine', age: 22 },
+  //     { name: 'Nick', age: 21 }
+  //   ],
+  //   animal: {
+  //     info: [ null ]
+  //   },
+  //   currentPerson: 0,
+  //   currentPanel: 'HOME'
+  // };
+
+  // store.freeze();
+
+  store.createView('oldestPerson', state => {
+    return _.maxBy(state.people, person => person.age);
+  });
+</script>
+</body>
+</html>
