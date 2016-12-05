@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: './index.js',
   output: {
-    path: './dist/',
+    path: './',
     filename: 'cubbie.min.js',
     library: 'cubbie',
     libraryTarget: 'umd'
@@ -22,4 +22,3 @@ module.exports = {
     ]
   }
 };
-
