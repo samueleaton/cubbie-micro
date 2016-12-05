@@ -1,8 +1,8 @@
 {
   "name": "cubbie-micro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stupid simple state storage",
-  "main": "dist/cubbie.min.js",
+  "main": "cubbie.min.js",
   "scripts": {
     "prebundle": "npm run -s lint",
     "bundle": "webpack",

@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './index.js',
+  entry: './lib/cubbie.js',
   output: {
     path: './',
     filename: 'cubbie.min.js',
