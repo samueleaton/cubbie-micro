@@ -1,6 +1,6 @@
 {
   "name": "cubbie-micro",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Stupid simple state storage",
   "main": "cubbie.min.js",
   "scripts": {
