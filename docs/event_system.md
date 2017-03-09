@@ -16,10 +16,7 @@ store.on(
     "STATE_SET",
     "STATE_RESET",
     "STATE_REVERTED",
-    "STATE_MODIFIED",
-    "STATE_PROBED",
-    "STORE_COMMITTED",
-    "STORE_FETCHED"
+    "STATE_MODIFIED"
   ],
   () => {
     // code here...
@@ -27,15 +24,13 @@ store.on(
 )
 ```
 
-But because you can get an array of all cubbie events using `store.cubbieEvents` you could shorten the above code to:
+But because you can get an array of all Cubbie events using `store.cubbieEvents` you could shorten the above code to:
 
 ``` javascript
 store.on(store.cubbieEvents, () => {
   // code here...
 })
 ```
-
-NOTE: You can also use `once` method to only run the handler one time.
 
 ### Emitting Events
 
@@ -45,14 +40,6 @@ store.emit('EVENT_NAME' [, optional_args]);
 
 Arguments passed to the emitter will be passed as parameters to the event handler.
 
-### Removing Events
-
-``` javascript
-store.off('EVENT_NAME' [, callback]);
-```
-
-This remove the event listener for the event. If the callback is omitted, all listeners for the event will be removed.
-
 ### Built-in Events (`cubbieEvents`)
 
 Custom events can be added and emitted, but there are 5 built-in *Cubbie Events*.
@@ -61,11 +48,6 @@ Custom events can be added and emitted, but there are 5 built-in *Cubbie Events*
 - `STATE_RESET` - Triggered on `store.resetState();`
 - `STATE_MODIFIED` - Triggered on `store.modifiyState(() => {});`
 - `STATE_REVERTED` - Triggered on `store.revertState();`
-- `STATE_PROBED` - Triggered on `store.probeState();`
-- `STORE_COMMITTED` - Triggered after committing the store to a file using `store.commitStore();` (*Node.js Only*)
-- `STORE_FETCHED` - Triggered after fetching the store from a file using `store.fetchStore();` (*Node.js Only*)
-
-The only purpose of `probeState()` is to trigger the `STATE_PROBED` event.
 
 To get an array of all cubbie events, access the `cubbieEvents` property.
 
