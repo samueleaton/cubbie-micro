@@ -51,7 +51,7 @@ We need to create a store for the state of our app.
 ``` javascript
 // store/index.js
 
-import cubbie from 'cubbie';
+import cubbie from 'cubbie-micro';
 const store = cubbie.createStore();
 export default store;
 ```
